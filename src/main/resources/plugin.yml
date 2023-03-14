@@ -1,0 +1,16 @@
+name: rPerms
+version: 0.5
+description: Simple permissions plugin
+author: regret
+
+main: me.regret.main.rPerms.main
+
+commands:
+    grant:
+        usage: /grant
+    list:
+        usage: /list
+    rank:
+        usage: /rank
+
+permissions: {}
