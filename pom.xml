@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>me.regret.main</groupId>
+    <groupId>me.regret.rPerms.main</groupId>
     <artifactId>rPerms</artifactId>
     <!-- Version is used in plugin.yml -->
     <version>0.5</version>
@@ -9,7 +9,7 @@
     <properties>
         <!--  Author and MainClass are used in plugin.yml -->
         <author>regret</author>
-        <mainClass>me.regret.main.rPerms.main</mainClass>
+        <mainClass>me.regret.rperms.main.Main</mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

@@ -1,9 +1,9 @@
 name: rPerms
 version: 0.5
-description: Simple permissions plugin
+description: permissions plugin
 author: regret
 
-main: me.regret.main.rPerms.main
+main: me.regret.rperms.main.Main
 
 commands:
     grant:

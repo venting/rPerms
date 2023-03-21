@@ -1,7 +1,6 @@
-package me.regret.main.rPerms.commands;
+package me.regret.rperms.commands;
 
-import me.regret.main.rPerms.Ranks;
-import me.regret.main.rPerms.main;
+import me.regret.rperms.main.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,16 +10,22 @@ import org.bukkit.entity.Player;
 
 public class listCommand implements CommandExecutor {
 
+    private final Main plugin;
+
+    public listCommand(Main plugin) {
+        this.plugin = plugin;
+    }
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player p = (Player) sender;
 
+
         if (sender == p) {
-            ConfigurationSection rankNames = main.plugin.getConfig().getConfigurationSection("Ranks");
+            ConfigurationSection rankNames = plugin.getConfig().getConfigurationSection("Ranks");
             if (rankNames != null) {
                 StringBuilder b = new StringBuilder();
                 for (String s : rankNames.getKeys(false)) {
-                    String prefix = Ranks.getRankPrefix(s);
+                    String prefix = plugin.getConfig().getString("Ranks." + s + ".prefix");
                     b.append(prefix);
                     b.append("§f, ");
                 }
@@ -29,8 +34,8 @@ public class listCommand implements CommandExecutor {
 
                 StringBuilder pl = new StringBuilder();
                 for (Player o : Bukkit.getServer().getOnlinePlayers()) {
-                    String rank = Ranks.getRank(o);
-                    String prefix = Ranks.getRankPrefix(rank);
+                    String rank = plugin.getConfig().getString("Players." + o.getUniqueId().toString() + ".rank");
+                    String prefix = plugin.getConfig().getString("Ranks." + rank + ".prefix");
                     if(prefix == null){
                         pl.append(o.getName());
                         pl.append("§f, ");
